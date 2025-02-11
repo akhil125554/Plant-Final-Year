@@ -9,7 +9,13 @@ const bidsRoute = require('./routes/bids.Routes')
 const notificationRoute = require('./routes/notification.Routes')
 
 const port = process.env.PORT || 8080;
-
+app.use(cors(
+    {
+        origin:["https://harithavanambackend.vercel.app"],
+        methods:["POST","GET"],
+        credentials:true
+    }
+));
 app.use('/api/users', userRoute);
 app.use('/api/products', productRoute);
 app.use('/api/bids', bidsRoute);
